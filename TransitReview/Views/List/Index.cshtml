@@ -1,0 +1,36 @@
+﻿<div class="container body-content">
+    <h1>@ViewBag.title</h1>
+    <h2 class="centered">Metro Stations By Category</h2>
+</div>
+
+<table>
+    <tr>
+        @foreach (var column in ViewBag.columns)
+        {
+            <th>@column.Value</th>
+        }
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>
+                    <a asp-controller="List" asp-action="Metros" asp-route-column="All" asp-route-value="All">ALL</a>
+                </li>
+            </ul>
+        </td>
+    </tr>
+
+  @* @foreach (var category in ViewBag.tableChoices)
+    {
+        <td>
+            <ul>
+                @foreach (var item in category.Value)
+                {
+                    <li>
+                        <a asp-controller="List" asp-action="Metros" asp-route-column=@category.Key asp-route-value="@item">@item</a>
+                    </li>
+                }
+            </ul>
+        </td>
+    } *@
+</table>

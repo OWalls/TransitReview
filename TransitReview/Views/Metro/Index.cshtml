@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<TransitReview.Models.Metro>
+
+@if (ViewBag.metros.Count == 0)
+{
+        <p>No trains yet!</p>
+}
+else
+{
+        <table class="table">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    BusConnect
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    Reviews
+                </th>
+            </tr>
+        @foreach (var stop in ViewBag.metros)
+        {
+                    <tr>
+                        <td>@stop.Id</td>
+                        <td>@stop.Name</td>
+                        <td>@stop.BusConnect</td>
+                        <td>@stop.City</td>
+                <td><a asp-controller="Reviews" asp-action="Add" asp-route-id="@stop.Id">Add Review</a></td>
+                    </tr>
+        }
+        </table>
+}

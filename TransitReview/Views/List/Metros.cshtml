@@ -1,0 +1,22 @@
+﻿<div>   
+    <h1>@ViewBag.title</h1>
+
+    @foreach (var metro in ViewBag.metros)
+    {
+        <table>
+            <tr>
+                <th>Name:</th>
+                <td>@metro.Name</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>@metro.City</td>
+            </tr>
+            <tr>
+                <th>Bus Connection</th>
+                <td>@metro.BusConnect</td>
+            </tr>
+                
+        </table>
+    }
+</div>

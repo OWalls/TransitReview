@@ -1,0 +1,53 @@
+﻿<div class="container body-content">
+
+    <h1>Search Metro Stations</h1>
+
+    <form action="/search/results" method="post">
+
+        <h2>Search by:</h2>
+        <p>
+        @foreach(var column in ViewBag.columns)
+        {
+            <span>
+                <input type="checkbox" name="searchType" id="@column.Key" value="@column.Key" checked="@column.Key == 'all'" />
+                    <label for="@column.Key">@column.Value</label>
+            </span>
+        }
+        </p>
+        
+        <p>
+            <label for="searchTerm">Keyword:</label>
+            <input type="text" name="searchTerm" id="searchTerm" />
+        </p>
+
+        <input type = "submit" value="search"/>
+        
+    </form>
+
+     <hr />
+
+    @{
+        //TODO #4: Loop over the search results to display all job fields. 
+        if (ViewBag.metros != null)
+        {
+            @foreach(var metro in ViewBag.metros)
+            {
+                <table>
+                     <tr>
+                         <th>Name:</th>
+                         <td>@metro.Name </td>
+                     </tr>
+                     <tr>
+                         <th>City:</th>
+                         <td>@metro.City </td>
+                     </tr>
+                 </table>
+            }
+        } else
+        {
+            <p>No Data</p>
+        }
+
+    }
+
+</div>

@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Transit Reviews</h1>
+
+<button><a class="nav-link text-dark" asp-area="" asp-controller="Reviews" asp-action="Add">Add Review</a></button>
+
+@if (ViewBag.reviews.Count == 0)
+{
+    <p>No reviews yet</p>
+}
+else
+{
+    @foreach (var review in ViewBag.reviews)
+    {
+            <div>
+                <p>Username: @review.Username</p>
+                <p>Title:@review.Title</p>
+                <p>Comment:@review.Comment</p>
+                <p>MetroId: @review.MetroId</p>
+            </div>
+    }
+}
+
